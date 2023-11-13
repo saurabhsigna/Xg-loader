@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import React, { useEffect, useState } from "react";
 import LoadingAnimation from "@/public/lottie/loading.json";
 import { motion, useAnimationControls } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface Props {}
 
@@ -12,14 +13,16 @@ const App: React.FC<Props> = () => {
   let loaderVariant = {
     show: {
       opacity: 1,
+      y: 0,
       transition: {
         duration: 1,
       },
     },
     hide: {
       opacity: 0,
+      y: -200,
       transition: {
-        duration: 1,
+        duration: 0.4,
       },
     },
   };
@@ -27,7 +30,9 @@ const App: React.FC<Props> = () => {
     // loaderControl.start("show");
     setTimeout(() => {
       loaderControl.start("hide");
-      setHideLoadingScreen(true);
+      setTimeout(() => {
+        setHideLoadingScreen(true);
+      }, 1000);
       console.log("heeriye");
     }, 3000);
     // loaderControl.stop();
@@ -39,6 +44,7 @@ const App: React.FC<Props> = () => {
       initial={"show"}
       className={cn(
         `flex cursor-wait absolute  overflow-hidden items-center justify-center h-screen w-screen bg-black`,
+        hideLoadingScreen == true ? "hidden" : "",
       )}
     >
       <div className="">

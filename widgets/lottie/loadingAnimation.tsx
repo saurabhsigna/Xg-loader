@@ -43,7 +43,7 @@ const App: React.FC<Props> = () => {
       animate={loaderControl}
       initial={"show"}
       className={cn(
-        `flex cursor-wait absolute  overflow-hidden items-center justify-center h-screen w-screen bg-black`,
+        `flex cursor-wait fixed z-[2]  overflow-hidden items-center justify-center h-screen w-screen bg-black`,
         hideLoadingScreen == true ? "hidden" : "",
       )}
     >

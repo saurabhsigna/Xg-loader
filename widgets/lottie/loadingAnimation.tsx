@@ -13,16 +13,17 @@ const App: React.FC<Props> = () => {
   let loaderVariant = {
     show: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         duration: 1,
       },
     },
     hide: {
-      opacity: 0,
-      y: -200,
+      opacity: 0.8,
+      x: "100%",
       transition: {
-        duration: 0.4,
+        duration: 0.3,
+        ease: "easeOut",
       },
     },
   };
